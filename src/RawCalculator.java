@@ -1,9 +1,13 @@
-public class RawCalculator extends FunctionCalculator {
+public class RawCalculator extends SingleParamCalculator {
 
-    public Object param;
     public RawCalculator(Object param) {
-        this.param = param;
+        super(param);
     }
+
+    public RawCalculator() {
+        super();
+    }
+
     @Override
     public Object calculate() {
         return param;

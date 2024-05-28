@@ -1,16 +1,14 @@
 import java.util.List;
 
-public class ConcatCalculator extends FunctionCalculator {
-    private final List<FunctionCalculator> params;
-
+public class ConcatCalculator extends MultipleParamCalculator {
     public ConcatCalculator(List<FunctionCalculator> params) {
-        this.params = params;
+        super(params);
     }
 
     @Override
     public Object calculate() {
         StringBuilder result = new StringBuilder();
-        for(FunctionCalculator func : params) {
+        for(FunctionCalculator func : params.reversed()) {
             Object res = func.calculate();
             if (res != null) {
                 result.append(res);

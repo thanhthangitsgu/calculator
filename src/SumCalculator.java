@@ -1,16 +1,13 @@
 import java.util.List;
 
-public class SumCalculator extends FunctionCalculator {
-
-    private List<FunctionCalculator> params;
-
+public class SumCalculator extends MultipleParamCalculator {
     public SumCalculator(List<FunctionCalculator> params) {
-        this.params = params;
+        super(params);
     }
 
     @Override
     public Object calculate() {
-        Double result = 0.0;
+        double result = 0.0;
 
         for(FunctionCalculator param : params) {
             Object res = param.calculate();
