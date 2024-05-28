@@ -11,10 +11,6 @@ public abstract class MultipleParamCalculator extends FunctionCalculator {
         this.params = params;
     }
 
-    public List<FunctionCalculator> getParams() {
-        return this.params;
-    }
-
     @Override
     public abstract Object calculate();
 }
