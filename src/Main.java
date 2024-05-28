@@ -3,10 +3,8 @@ import java.util.Stack;
 
 public class Main {
     public static void main(String[] args) {
-        FunctionCalculator func = parseFunction("CONCAT(\"Hello\", CONCAT(\"World\", SUM(4, 5)))");
-        if (func != null) {
-            System.out.println(func.calculate());
-        }
+        FunctionCalculator func = parseFunction("CONCAT(\"Hello\", CONCAT(\"World\", SUM(4, 5)), \"ThanhThang\")");
+        System.out.println(func.calculate());
     }
 
     public static FunctionCalculator parseFunction(String statement) {
@@ -39,9 +37,8 @@ public class Main {
                 while (Character.isDigit(statement.charAt(i))) {
                     strNumber.append(statement.charAt(i++));
                 }
-                double num = Double.parseDouble(strNumber.toString());
                 formula = "RAW";
-                params.add(new RawCalculator(num));
+                params.add(new RawCalculator(Double.parseDouble(String.valueOf(strNumber))));
                 i--;
             }
 
@@ -67,9 +64,6 @@ public class Main {
             i++;
         }
 
-        if (!stack.isEmpty()) {
-            return stack.pop();
-        }
-        return null;
+        return stack.pop();
     }
 }
